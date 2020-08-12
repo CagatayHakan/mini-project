@@ -1,0 +1,91 @@
+<!--
+New Products
+-->
+<div class="well well-small">
+    <h3>New Products </h3>
+    <hr class="soften"/>
+    <div class="row-fluid">
+        <ul class="thumbnails">
+
+            {% for product in products %}
+            <li class="span4">
+                <div class="thumbnail">
+                    <a class="zoomTool" href="product/detail/{{ product.id }}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                    <a href="product/detail/{{ product.id }}"><img src="{{ product.image }}" alt=""></a>
+                    <div class="caption cntr">
+                        <p>{{ product.description }}</p>
+                        <p><strong> {{ product.price }} $</strong></p>
+                        <h4><a class="shopBtn" href="product/detail/{{ product.id }" title="Buy"> Buy </a></h4>
+                        <div class="actionList">
+                        </div>
+                        <br class="clr">
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+            <!--<li class="span4">
+                <div class="thumbnail">
+                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                    <a href="product_details.html"><img src="assets/img/c.jpg" alt=""></a>
+                    <div class="caption cntr">
+                        <p>Manicure & Pedicure</p>
+                        <p><strong> $22.00</strong></p>
+                        <h4><a class="shopBtn" href="#" title="Buy"> Buy </a></h4>
+                        <div class="actionList">
+
+                        </div>
+                        <br class="clr">
+                    </div>
+                </div>
+            </li>
+
+            <li class="span4">
+                <div class="thumbnail">
+                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                    <a href="product_details.html"><img src="assets/img/a.jpg" alt=""></a>
+                    <div class="caption cntr">
+                        <p>Manicure & Pedicure</p>
+                        <p><strong> $22.00</strong></p>
+                        <h4><a class="shopBtn" href="#" title="Buy"> Buy </a></h4>
+                        <div class="actionList">
+
+                        </div>
+                        <br class="clr">
+                    </div>
+                </div>
+            </li>-->
+
+        </ul>
+    </div>
+</div>
+
+</div>
+</div>
+<!--
+Clients
+-->
+<section class="our_client">
+    <hr class="soften"/>
+    <h4 class="title cntr"><span class="text">Manufactures</span></h4>
+    <hr class="soften"/>
+    <div class="row">
+        <div class="span2">
+            <a href="#"><img alt="" src="assets/img/1.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="assets/img/2.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="assets/img/3.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="assets/img/4.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="assets/img/5.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="assets/img/6.png"></a>
+        </div>
+    </div>
+</section>

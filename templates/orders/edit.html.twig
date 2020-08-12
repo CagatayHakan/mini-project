@@ -1,0 +1,17 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Edit Orders{% endblock %}
+{% block sidebar %}
+
+    {{ include ('home/_sidebar.html.twig') }}
+
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Orders</h1>
+
+    {{ include('orders/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('orders_index') }}">back to list</a>
+
+{% endblock %}

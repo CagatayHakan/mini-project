@@ -1,0 +1,64 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block sidebar %}
+
+    {{ include ('home/_sidebar.html.twig') }}
+
+{% endblock %}
+
+{% block body %}
+    <h1>Order Items</h1>
+    <form class="form-horizontal" name="order" action="{{ path('orders_new') }}" method="post">
+        <fieldset>
+
+            <div class="control-group" col-sm-5>
+                <!--<input type="text" name="orders[amount]" value="{{ total }}" placeholder="Total" class="input-xlarge" />-->
+                <label class="col-sm-2 control-label">Total Payment : <h1>${{ total }}</h1></label>
+
+            </div>
+
+            <hr>
+
+            <h2>Cargo Receiver Information</h2>
+
+            <label class="col-sm-2 control-label">Name: </label>
+            <div class="control-group" col-sm-5>
+                <input type="text" name="orders[name]" value="{{ app.user.name }}" placeholder="Name" class="input-xlarge" />
+            </div>
+
+            <label class="col-sm-2 control-label">Address: </label>
+            <div class="control-group" col-sm-5>
+                <input type="text" name="orders[address]" value="{{ app.user.address }}" placeholder="Address" class="input-xlarge" />
+            </div>
+
+            <label class="col-sm-2 control-label">Phone: </label>
+            <div class="control-group" col-sm-5>
+                <input type="text" name="orders[phone]" value="{{ app.user.phone }}" placeholder="Phone" class="input-xlarge" />
+            </div>
+
+            <hr>
+
+            <h2>Credit Card Information</h2>
+
+            <label class="col-sm-2 control-label">Name: </label>
+            <div class="control-group" col-sm-5>
+                <input type="text" placeholder="Name" class="input-xlarge" />
+            </div>
+
+            <label class="col-sm-2 control-label">Card Number: </label>
+            <div class="control-group" col-sm-5>
+                <input type="text" placeholder="Card Number" class="input-xlarge" />
+            </div>
+
+            <label class="col-sm-2 control-label">CVC Number: </label>
+            <div class="control-group" col-sm-5>
+                <input type="text" placeholder="CVC Number" class="input-xlarge" />
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('form-order') }}"/>
+            <label class="col-sm-2 control-label"></label>
+            <div class="control-group" col-sm-5>
+                <input class="shopBtn" type="submit" value="Buy it">
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

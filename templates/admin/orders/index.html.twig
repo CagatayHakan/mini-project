@@ -1,0 +1,48 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Orders index{% endblock %}
+
+{% block body %}
+<section class="content">
+    <div class="card-body">
+    <h1>Orders</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Shipinfo</th>
+                <th>Status</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.amount }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.shipinfo }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.note }}</td>
+                <td>
+                    <a href="{{ path('admin_orders_show', {'id': order.id}) }}" class="btn btn-block">Show</a>
+
+
+                    <a href="{{ path('admin_orders_edit', {'id': order.id}) }}" class="btn btn-block">Edit</a>
+                    <a href="{{ path('admin_orders_delete', {'id': order.id}) }}" class="btn btn-block btn-danger btn-xs">Cancel</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</section>
+{% endblock %}

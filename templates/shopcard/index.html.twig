@@ -1,0 +1,46 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Shopcard{% endblock %}
+{% block sidebar %}
+
+    {{ include ('home/_sidebar.html.twig') }}
+
+{% endblock %}
+{% block body %}
+    <h1>Shopcard</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Shipping Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for shopcard in shopcards %}
+            <tr>
+                <td>{{ shopcard.name }}</td>
+                <td>{{ shopcard.description }}</td>
+                <td>{{ shopcard.quantity }}</td>
+                <td>{{ shopcard.price }}</td>
+                <td>{{  (shopcard.quantity * shopcard.price) }}</td>
+                <td>{{ shopcard.create_at ? shopcard.create_at|date('Y-m-d H:i:s') : '' }}</td>
+                <td scr>
+                    <a href="{{ path('product_detail', {'id': shopcard.productid}) }}" class="btn btn-block">show</a>
+                    <a href="{{ path('shopcard_delete', {'id': shopcard.id}) }}" class="btn btn-block btn-danger btn-xs" >delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('orders_new') }}" class="btn btn-block btn-success btn-large">Buy it !</a>
+{% endblock %}

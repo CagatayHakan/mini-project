@@ -1,0 +1,97 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Orders{% endblock %}
+
+{% block sidebar %}
+
+    {{ include ('home/_sidebar.html.twig') }}
+
+{% endblock %}
+
+{% block body %}
+    <h1>Order</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ order.id }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ order.userid }}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ order.amount }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ order.address }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ order.phone }}</td>
+            </tr>
+            <tr>
+                <th>Shipinfo</th>
+                <td>{{ order.shipinfo }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ order.status }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ order.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+    <h1>Products</h1>
+    {% for detail in orderdetail %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Name</th>
+            <td>{{ detail.name }}</td>
+        </tr>
+        <tr>
+            <th>Order Id</th>
+            <td>{{ detail.orderid }}</td>
+        </tr>
+        <tr>
+            <th>User Id</th>
+            <td>{{ detail.userid }}</td>
+        </tr>
+        <tr>
+            <th>Product Id</th>
+            <td>{{ detail.productid }}</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>{{ detail.price }}</td>
+        </tr>
+        <tr>
+            <th>Quantity</th>
+            <td>{{ detail.quantity }}</td>
+        </tr>
+        <tr>
+            <th>Amount</th>
+            <td>{{ detail.amount }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ detail.status }}</td>
+        </tr>
+        </tbody>
+    </table>
+        <hr/>
+    {% endfor %}
+    <a href="{{ path('orders_index') }}">back to list</a>
+
+    <a href="{{ path('orders_edit', {'id': order.id}) }}">edit</a>
+
+    {{ include('orders/_delete_form.html.twig') }}
+{% endblock %}
